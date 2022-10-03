@@ -13,9 +13,10 @@
 
 #include <opencv2/core/types.hpp>
 
-#include "robotlab/module1.hpp"
 #include "robotlab/rmath.h"
+#include "robotlab/module1.hpp"
 #include "robotlab/opcua_cs.hpp"
+#include "robotlab/singleton.hpp"
 
 using namespace std;
 using namespace cv;
@@ -42,11 +43,14 @@ int main(int argc, char *argv[])
     print();
     this_thread::sleep_for(chrono::seconds(2));
 
-    Server server;
+    GlobalSingleton<Server> server;
+    server.New();
+
     UA_Float dis = getDistances(Point(11, 22), Point(33, 44));
 
-    server.addVariableNode("distance", dis);
+    server.Get()->addVariableNode("distance", dis);
 
-    server.run();
+    server.Get()->run();
+    server.Delete();
     return 0;
 }
