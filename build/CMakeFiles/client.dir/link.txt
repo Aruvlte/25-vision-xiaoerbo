@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/client.dir/client.cpp.o -o client  -Wl,-rpath,/home/aruvle/cmake1/CMake_II/build/modules/module2 modules/module2/libmodule2.so -lpthread 

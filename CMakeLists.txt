@@ -1,4 +1,9 @@
+cmake_minimum_required(VERSION 3.10)
 
+project(CMAKE2)
+
+set(OPCUSA_CS "${CMAKE_CURRENT_SOURCE_DIR}/modules/module2/include" )
+set(SINGLETON "${CMAKE_CURRENT_SOURCE_DIR}/common/singleton/include")
 
 
 # # # # 以下内容禁止修改 # # # #
@@ -14,6 +19,37 @@ add_subdirectory(modules)
 add_subdirectory(common)
 # 小提示: module2 需要用到 pthread，即 target_link_libraries(xxx pthread)
 # # # # 以上内容禁止修改 # # # #
+
+
+add_executable(server server.cpp)
+
+if(BUILD_A)
+    target_compile_definitions(server PRIVATE WITH_A)
+endif()
+
+if(BUILD_B)
+    target_compile_definitions(server PRIVATE WITH_B)
+endif()
+
+target_include_directories(server PUBLIC
+    /usr/local/include/opencv4
+    ${OPCUSA_CS}
+    ${SINGLETON}
+
+)
+target_link_libraries(server PUBLIC rmath)
+target_link_libraries(server PUBLIC module1)
+target_link_libraries(server PUBLIC module2)
+
+
+
+add_executable(client client.cpp)
+
+target_include_directories(client PUBLIC
+        ${OPCUSA_CS}
+)
+target_link_libraries(client PUBLIC module2)
+
 
 
 
