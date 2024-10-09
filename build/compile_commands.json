@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/aruvle/zimiao/build",
+  "command": "/usr/bin/g++  -isystem /usr/local/include/opencv4 -g -o CMakeFiles/zimiao.dir/zimiao1.cpp.o -c /home/aruvle/zimiao/zimiao1.cpp",
+  "file": "/home/aruvle/zimiao/zimiao1.cpp"
+}
+]

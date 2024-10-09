@@ -1,0 +1,3 @@
+/home/aruvle/zimiao/build/CMakeFiles/zimiao.dir
+/home/aruvle/zimiao/build/CMakeFiles/edit_cache.dir
+/home/aruvle/zimiao/build/CMakeFiles/rebuild_cache.dir
